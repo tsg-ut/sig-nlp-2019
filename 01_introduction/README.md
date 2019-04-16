@@ -46,10 +46,10 @@ pipenv --version
 ```
 
 #### Jupyter Notebookのインストール
-本来は`pipenv install jupyter`などとするところであるが，第1部で使うパッケージの一覧を`requirements.txt`に書いておいたので，これを用いて一気にインストールする。
+本来は`pipenv install jupyter`などとするところであるが，第1部で使うパッケージの一覧を`Pipfile`に書いておいたので，これを用いて一気にインストールする。
 
 ```bash
-pipenv install -r 01_introduction/requirements.txt
+pipenv install
 ```
 
 ## Jupyter Notebookの起動
