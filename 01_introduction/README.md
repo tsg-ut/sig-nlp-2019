@@ -28,12 +28,17 @@ cd sig-nlp-2019
 #### Python3のインストール
 OSによってはプリインストールされている。ターミナルで以下を入力して，バージョンを確認する。
 ```bash
-python -V
 python3 -V
 ```
-どちらか**片方でも**`Python 3.x.x`のような表示がされた場合，以下の操作は不要。`Python 2.x.x`や`command not found`等は要インストール。
+`Python 3.x.x`のような表示がされた場合，以下の操作は不要。`command not found`等は要インストール。
 
 パッケージマネージャにPython3があればそれを使ってもいいし，[公式](https://www.python.org/downloads/)や[Anaconda](https://www.anaconda.com/distribution/), [Miniconda](https://docs.conda.io/en/latest/miniconda.html)などからインストールしても良い。必ずPython**3**系をインストールすること。
+
+インストールされたことを確認する。
+
+```bash
+python3 -V
+```
 
 #### Pipenvのインストール
 次のコマンドでインストールできる。
@@ -49,7 +54,7 @@ pipenv --version
 本来は`pipenv install jupyter`などとするところであるが，第1部で使うパッケージの一覧を`Pipfile`に書いておいたので，これを用いて一気にインストールする。
 
 ```bash
-pipenv install
+pipenv install --three
 ```
 
 ## Jupyter Notebookの起動
