@@ -32,7 +32,7 @@ python3 -V
 ```
 `Python 3.x.x`のような表示がされた場合，以下の操作は不要。`command not found`等は要インストール。
 
-パッケージマネージャにPython3があればそれを使ってもいいし，[公式](https://www.python.org/downloads/)や[Anaconda](https://www.anaconda.com/distribution/), [Miniconda](https://docs.conda.io/en/latest/miniconda.html)などからインストールしても良い。必ずPython**3**系をインストールすること。
+パッケージマネージャにPython3があればそれを使ってもいいし，[公式](https://www.python.org/downloads/)や[Anaconda](https://www.anaconda.com/distribution/), [Miniconda](https://docs.conda.io/en/latest/miniconda.html)などからインストールしても良い。必ずPython**3**系をインストールすること。PATHを通すかどうか聞かれたら，「PATHを通す」とはどういうことかわからなければ通しておく。
 
 インストールされたことを確認する。
 
