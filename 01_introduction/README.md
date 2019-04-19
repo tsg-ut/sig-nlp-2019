@@ -80,7 +80,7 @@ python3 -V
 `Python 3.x.x`のような表示がされた場合，以下の操作は不要。`command not found`等は要インストール。
 
 ```powershell
-Install-Package PrependPath=1
+Install-Package python
 ```
 
 ```bash
