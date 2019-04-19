@@ -3,15 +3,62 @@
 ## 環境構築
 [binder](https://mybinder.org)を使うなら不要。
 
+### パッケージマネージャのインストール
+必須ではないが，以下ではインストールされていることを前提に進めていく。入れたくなければ以下のソフトを手動でインストールすれば良い。
+
+- [Windows10の場合](#Windowsの場合)
+- [macOSの場合](#macOSの場合)
+- [それ以外の場合](#それ以外の場合)
+
+
+#### Windowsの場合
+##### Powershell実行ポリシー変更
+まずPowershellはセキュリティ上の利用により，デフォルトでは任意のスクリプト（自分で作成したものを含む）を実行することができない。しかしそれはあまりにも不便なので変更しておく。以下のコマンドによって，ダウンロードしたスクリプトのみ実行のために信頼できる発行元の署名が必要になる。
+```powershell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+他のポリシーにしたければ[ドキュメント](https://docs.microsoft.com/ja-JP/previous-versions//ee176961(v=technet.10))参照。
+##### PackageManagementインストール(Windows10未満のみ)
+[ここ](https://www.microsoft.com/en-us/download/details.aspx?id=50395)からインストーラを落として実行する。
+
+ちなみに私はこの節の動作確認をしていないので，もしこれが動かなかったら[chocolatey](https://chocolatey.org)を使うことにする。
+
+##### PackageManagementのセットアップ
+まずChocolateyを利用可能にする。管理者権限でPowershellを起動して以下を実行する。
+```powershell
+Install-PackageProvider -Name "Chocolatey"
+```
+
+終わったらPowershellを一度閉じる。
+
+パッケージのインストールはPowershell上で以下のように行う。
+```powershell
+Install-Package パッケージ名
+```
+
+#### macOSの場合
+[公式](https://brew.sh/)にインストールのコマンドが書いてあるので，それを実行する。
+
+パッケージのインストールは以下のように行う，
+```bash
+brew install パッケージ名
+```
+
+#### それ以外の場合
+各自調べてください。ディストリビューションに付属しているものがあればそれを使っても良いし，[Linuxbrew](https://docs.brew.sh/Homebrew-on-Linux)というものもあるらしい。パッケージマネージャに依らず手動でインストールするのでも構わない。
+
 ### リポジトリのクローン
 #### Gitのインストール
 以下のコマンドでインストール済みか確認。
 ```bash
 git --version
 ```
-`command not found`とかが出たら要インストール。 [公式](https://git-scm.com/downloads)から環境にあったものをインストールする。パッケージマネージャを使っても良い。
+`command not found`とかが出たら要インストール。
 
-Note: Mac使いはパッケージマネージャ[brew](https://brew.sh/index_ja)をインストールしておくと何かと便利なので，この機会に入れるも良し。brewをインストールしたら，Gitは以下のコマンド一発でインストールできる。
+```powershell
+Install-Package git
+```
+
 ```bash
 brew install git
 ```
@@ -32,7 +79,13 @@ python3 -V
 ```
 `Python 3.x.x`のような表示がされた場合，以下の操作は不要。`command not found`等は要インストール。
 
-パッケージマネージャにPython3があればそれを使ってもいいし，[公式](https://www.python.org/downloads/)や[Anaconda](https://www.anaconda.com/distribution/), [Miniconda](https://docs.conda.io/en/latest/miniconda.html)などからインストールしても良い。必ずPython**3**系をインストールすること。PATHを通すかどうか聞かれたら，「PATHを通す」とはどういうことかわからなければ通しておく。
+```powershell
+Install-Package PrependPath=1
+```
+
+```bash
+brew install python3
+```
 
 インストールされたことを確認する。
 
@@ -42,9 +95,13 @@ python3 -V
 
 #### Pipenvのインストール
 次のコマンドでインストールできる。
-```bash
-pip3 install --user pipenv
+```powershell
+pip3 install pipenv
 ```
+```bash
+brew install pipenv
+```
+
 次のコマンドでインストール済みであることを確認する。
 ```bash
 pipenv --version
@@ -56,6 +113,11 @@ pipenv --version
 ```bash
 pipenv install --three
 ```
+
+#### クリーナーのセットアップ
+Jupyter Notebookのデータをバージョン管理しやすいように整形するツールをセットアップする。
+
+TODO: 書く
 
 ## Jupyter Notebookの起動
 ```bash
