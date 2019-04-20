@@ -115,9 +115,39 @@ pipenv install --three
 ```
 
 #### クリーナーのセットアップ
-Jupyter Notebookのデータをバージョン管理しやすいように整形するツールをセットアップする。
+Jupyter Notebookのデータには実行番号や出力結果などが含まれており，バージョン管理で非本質的な差分が生じる。これを取り除くため，`git add`時などに不要な情報を削除した上でステージに乗せるよう設定する。
 
-TODO: 書く
+`git add`によってローカルのファイルが変化することはないが，リポジトリには整形された状態で載っているため，checkoutなどをすると整形されたものが復元されることに注意。
+
+GUIクライアントによってはこのfilterを無視する場合があるので，CUIで`git add`することを勧める。
+
+##### jqのインストール
+`.ipynb`ファイルの中身はJSONなので，jqというJSON整形ツールを用いて整形する。
+
+```powershell
+Install-Package jq
+```
+
+```bash
+brew install jq
+```
+
+##### gitの設定変更
+`.gitconfig`に整形ツールの設定が書かれている。これを`.git/config`に読み込ませる必要があるが，その設定をするスクリプトを用意したのでそれを実行すれば良い。
+
+```powershell
+./gitsetup.ps1
+```
+
+```bash
+bash gitsetup.sh
+```
+
+念の為書いておくと，これらのスクリプトは`.git/config`に以下の文字列を追記するものである。
+```
+[include]
+	path="../.gitconfig"
+```
 
 ## Jupyter Notebookの起動
 ```bash
