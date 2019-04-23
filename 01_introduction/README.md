@@ -79,9 +79,7 @@ python3 -V
 ```
 `Python 3.x.x`のような表示がされた場合，以下の操作は不要。`command not found`等は要インストール。
 
-```powershell
-Install-Package python
-```
+Windowsの場合は[公式](https://www.anaconda.com/)からインストーラをダウンロードして実行する。PATHを通すとはどういうことか分からなければ，とりあえずPATHを通すにチェックを入れる。
 
 ```bash
 brew install python3
@@ -109,6 +107,8 @@ pipenv --version
 
 #### Jupyter Notebookのインストール
 本来は`pipenv install jupyter`などとするところであるが，第1部で使うパッケージの一覧を`Pipfile`に書いておいたので，これを用いて一気にインストールする。
+
+TODO: Windows用手順は準備中です。
 
 ```bash
 pipenv install --three
