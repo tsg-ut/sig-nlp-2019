@@ -1,0 +1,1 @@
+jq --indent 2 '(.cells[] | select(has("outputs")) | .outputs) = []| (.cells[] | select(has("execution_count")) | .execution_count) = null| .metadata = {} | .cells[].metadata = {}'
