@@ -1,3 +1,4 @@
 #!/bin/bash
 
-pipenv install --three --system
+pipenv install --three
+pipenv shell --no-interactive
