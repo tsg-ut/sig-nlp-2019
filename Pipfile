@@ -9,7 +9,6 @@ pylint = "*"
 [packages]
 # 01_introduction
 jupyter = "*"
-numpy = "*"
 
 [requires]
 python_version = "3.7"
