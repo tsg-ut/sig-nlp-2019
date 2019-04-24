@@ -8,7 +8,7 @@ pylint = "*"
 
 [packages]
 # 01_introduction
-# jupyter = "*"
+jupyter = "*"
 numpy = "*"
 
 [requires]
