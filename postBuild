@@ -1,3 +1,4 @@
 #!/bin/bash
 
+pipenv uninstall jupyter
 pipenv install --three --system
