@@ -55,9 +55,7 @@ git --version
 ```
 `command not found`とかが出たら要インストール。
 
-```powershell
-Install-Package git
-```
+Windowsの場合は[公式サイト](https://git-scm.com/download/)からインストーラを落として実行。
 
 ```bash
 brew install git
@@ -79,9 +77,7 @@ python3 -V
 ```
 `Python 3.x.x`のような表示がされた場合，以下の操作は不要。`command not found`等は要インストール。
 
-```powershell
-Install-Package python
-```
+Windowsの場合は[公式サイト](https://www.python.org)からインストーラを落として実行。デフォルトでオフになっている「PATHに追加」にチェックを入れること。
 
 ```bash
 brew install python3
@@ -133,20 +129,10 @@ brew install jq
 ```
 
 ##### gitの設定変更
-`.gitconfig`に整形ツールの設定が書かれている。これを`.git/config`に読み込ませる必要があるが，その設定をするスクリプトを用意したのでそれを実行すれば良い。
-
-```powershell
-./gitsetup.ps1
-```
+`.gitconfig`に整形ツールの設定が書かれている。これを`.git/config`に読み込ませる必要があるので以下を実行する。
 
 ```bash
-bash gitsetup.sh
-```
-
-念の為書いておくと，これらのスクリプトは`.git/config`に以下の文字列を追記するものである。
-```
-[include]
-	path="../.gitconfig"
+ git config --local include.path "../.gitconfig"
 ```
 
 ## Jupyter Notebookの起動
