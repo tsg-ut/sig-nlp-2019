@@ -9,6 +9,12 @@ pylint = "*"
 [packages]
 # 01_introduction
 jupyter = "*"
+nbdime = "*"
+mecab-python3 = {version = "*", sys_platform = "!= 'win32'"}
+mecab-python-windows = {version = "*", sys_platform = "== 'win32'"}
+gensim = "*"
+jaconv = "*"
+expectmagic = {git = "https://github.com/pizzacat83/ipython-magic-expect"}
 
 [requires]
 python_version = "3.7"
